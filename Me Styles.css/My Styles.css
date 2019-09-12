@@ -6,7 +6,7 @@
  	margin:0;
  	background-color:#2796e6;
  	}
-  /" Global "/ 	
+  /* Global */ 	
 container{
  		width:95%;
  		margin:auto;
@@ -54,6 +54,15 @@ container{
  	       font-weight:bold; 
  	   }
  	   
- 	   /" showcase "/
+ 	      
+ 	   footer{
+ 	      padding:15px;
+ 	      margin-top:10px;
+ 	      color:#ffffff;
+ 	      background-color:#12706b;
+ 	      text-align:center;
+ 	   }
+ 	   
+ 	  
  	   
  
