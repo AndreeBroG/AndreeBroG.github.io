@@ -46,11 +46,11 @@ container{
  	      margin-top:10px;
  	  }
  	   header .highlight, header .current a{
- 	       color:#3fe336;
+ 	       color:#2fe336;
  	       font-weight:bold;
  	   }
  	   header a:hover{
- 	       color:#268ef0;
+ 	       color:#368ef0;
  	       font-weight:bold; 
  	   }
  	   
