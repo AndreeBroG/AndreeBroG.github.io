@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf=8">
     <meta name="viewport" content="width=device-width">
-    
+    <script type="text/javascript" src="/js/processing.js"></script>
     <title>My Portfolio!</title>
     <link rel="stylesheet" href="./Me Styles.css/My Styles.css">
     
@@ -31,10 +31,95 @@
               <a href="https://scratch.mit.edu/projects/327360971/"><img src="Scratch.PNG" height="400px"></a>
               <h2> My Scratch Remix Project!</h2>
                 </div>
+              <div class="sideright">
+              <script type=”text/processing”> 
+              PImage bg, mack, TopPipe, BottomPipe;
+int bgx, bgy, mx, my, g, Vmy;
+int[] pipX, pipY; 
+int gameState;
+
+void setup()
+{
+   size(800,700);
+   bg = loadImage("./img/bg.png");
+   mack = loadImage("./img/Main.png");
+   TopPipe = loadImage("./img/Top Pipe.png");
+   BottomPipe = loadImage("./img/Long Pipe.png");
+   mx = 100;
+   my = 50;
+   g = 1;
+   pipX = new int[4];
+   pipY = new int[pipX.length];
+   for(int i = 0; i < pipX.length; i++)
+   {
+    pipX[i] = width + 200*i;
+    pipY[i] = (int)random(-350, 0);
+   }
+}
+
+void draw()
+{
+ if(gameState==0)
+ {
+  setbg(); 
+  setPipes();
+  mack();
+ }
+ else
+ {
+     text("You Lost", 20, 100);
+ }
+}
+  void setPipes()
+  {
+    for(int i = 0; i < pipX.length; i++)
+   {
+  image(TopPipe, pipX[i], pipY[i]);
+  image(BottomPipe,  pipX[i],  pipY[i] + 700);
+  pipX[i]--;
+  if(pipX[i] < -200)
+  {
+   pipX[i] = width;
+  }
+  if(mx > pipX[i] && mx < pipX[i] + 92)
+  {
+   gameState = 1;
+  }
+   }
+   
+}
+ void mack()
+ {
+image(mack, mx, my);
+  my = my + Vmy;
+  Vmy = Vmy +g; 
+ }
+
+ void mousePressed()
+ {
+   Vmy = -15;
+   
+ }
+  
+ void setbg()
+ {
+   image(bg, bgx, bgy);
+  image(bg, bgx + bg.width, bgy);
+  bgx= bgx -1;
+  if(bgx < -bg.width)
+  {
+    bgx = 0;
+  }
+ }
+
+ </script>
+<canvas id="sketch" style="border: 1px solid black;"></canvas>
+                
+              </div>
             </section>
             <footer>
              <p>The Video Game World, Copyright &copy; 2019</p>
          </footer>
      </body>
-</html>
+     </html>
 
